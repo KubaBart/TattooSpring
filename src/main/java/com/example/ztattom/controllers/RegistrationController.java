@@ -1,5 +1,6 @@
 package com.example.ztattom.controllers;
 
+import com.example.ztattom.entities.Role;
 import com.example.ztattom.entities.User;
 import com.example.ztattom.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class RegistrationController {
@@ -21,6 +24,7 @@ public class RegistrationController {
     {
         return "index";
     }
+
     @GetMapping("/register")
     public String getRegister(Model model)
     {

@@ -51,21 +51,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/register","/register_process","/index","/h2-console").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/index","/register","registration_process").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
-                .permitAll()
-                .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                .permitAll();
 
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/js/**","/css/**", "/webjars/**");
+        web.ignoring().antMatchers("/styles/**","/css/**", "/webjars/**", "/h2-console/**");
     }
 
 }

@@ -4,7 +4,10 @@ import com.example.ztattom.enums.accountType;
 import lombok.Getter;
 import lombok.Setter;
 
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -14,6 +17,7 @@ public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
  private Long id;
  @Column(nullable = false, unique = true, length = 38)
  private String email;
@@ -23,8 +27,17 @@ public class User
  private String firstName;
  @Column(nullable = false, length = 25)
  private String lastName;
- @Enumerated(EnumType.STRING)
- @Column(name="accountType")
- private accountType accountType;
 
+ @ManyToMany
+ @JoinTable(
+  name = "users_roles",
+          joinColumns = @JoinColumn(name = "user_id"),
+          inverseJoinColumns = @JoinColumn(name = "role_id")
+ )
+ private Set <Role> roles = new HashSet<>();
+
+ public void addRole(Role role)
+ {
+   this.roles.add(role);
+ }
 }

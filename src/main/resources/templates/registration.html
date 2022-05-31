@@ -12,6 +12,7 @@
 <body>
 <div id="container text-center">
     <h1>Registration</h1>
+
     <form th:action="@{/register_process}" method="post" th:object="${user}">
         <div class="form-group row">
                 <label class="col-4 col-form-label">E-mail: </label>
@@ -43,10 +44,11 @@
                            required minlength="2" maxlength="20" />
                 </div>
             </div>
-        <select name="Typ Konta">
-            <option th:each="accType : ${T(com.example.ztattom.enums.accountType).values()}"
-                    th:value="*{accountType}" th:text="${accType}"></option>
-        </select>
+        <div class="form-group row">
+            <label class="col-4 col-form-label">Typ Konta</label>
+            <div class="col-8">
+            </div>
+        </div>
             <div>
                 <button type="submit" class="btn">Sign Up</button>
             </div>
