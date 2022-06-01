@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>CreativeT</title>
@@ -47,6 +48,11 @@
         <div class="form-group row">
             <label class="col-4 col-form-label">Typ Konta</label>
             <div class="col-8">
+            <th:block th:each="role : ${listRoles}">
+                <input type="checkbox" th:field ="*{roles}"
+                       th:value="${role.id}"
+                       th:text="${role.name}"/>
+            </th:block>
             </div>
         </div>
             <div>

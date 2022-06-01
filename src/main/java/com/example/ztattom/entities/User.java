@@ -28,16 +28,26 @@ public class User
  @Column(nullable = false, length = 25)
  private String lastName;
 
- @ManyToMany
+ @ManyToMany(fetch = FetchType.EAGER)
  @JoinTable(
   name = "users_roles",
           joinColumns = @JoinColumn(name = "user_id"),
           inverseJoinColumns = @JoinColumn(name = "role_id")
  )
+
+
  private Set <Role> roles = new HashSet<>();
 
- public void addRole(Role role)
- {
-   this.roles.add(role);
- }
+    public Set<Role> getRoles()
+    {
+        return roles;
+    }
+    public void SetRoles(Set<Role> roles)
+    {
+        this.roles = roles;
+    }
+    public void addRole(Role role)
+    {
+        this.roles.add(role);
+    }
 }

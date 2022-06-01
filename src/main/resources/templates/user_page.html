@@ -10,14 +10,7 @@
 </head>
 <body>
 <div id="container text-center">
-    <div sec:authorize="isAuthenticated()">
-        Welcome <b><span sec:authentication="name">Username</span></b>
-        &nbsp;
-        <i><span sec:authentication="principal.authorities">Roles</span></i>
-    </div>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout" />
-    </form>
+
 </div>
 </body>
 </html>
