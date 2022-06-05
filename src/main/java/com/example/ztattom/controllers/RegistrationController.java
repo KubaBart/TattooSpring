@@ -40,7 +40,7 @@ public class RegistrationController {
     public String processRegistration(User user)
     {
         usrService.saveUserWithRole(user);
-        return "user_page";
+        return "register_success";
     }
 
 }

@@ -14,11 +14,6 @@ public class LoginController {
         if (auth == null || auth instanceof AnonymousAuthenticationToken) {
             return "login";
         }
-        return "redirect:user_page";
-    }
-
-    @GetMapping("/logout")
-    public String logout() {
         return "index";
     }
 
