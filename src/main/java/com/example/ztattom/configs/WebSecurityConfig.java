@@ -51,9 +51,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user_page").hasAnyAuthority("TATUATOR","KLIENT")
-                .antMatchers("/index","/register","/register_process","/").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/user_page").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/tatRegister").hasAuthority("USER")
+                .antMatchers("/addTatDate").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")

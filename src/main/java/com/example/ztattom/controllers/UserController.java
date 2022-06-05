@@ -13,6 +13,13 @@ public class UserController {
         return "addTatDate";
     }
 
+    @GetMapping("/tatRegister")
+    public String addTattooReg()
+    {
+
+        return "tatuaz_reg";
+    }
+
     @GetMapping("/user_page")
     public String userPage()
     {

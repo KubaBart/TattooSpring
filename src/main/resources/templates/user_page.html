@@ -10,8 +10,13 @@
 </head>
 <body>
 <div id="container text-center">
-
+    <a sec:authorize="isAuthenticated()">Witamy, <span sec:authentication="principal.fullName"></span></a>
+    <div sec:authorize="hasAuthority('USER')">
+        <a th:href="@{/tatRegister}">Zapisz sie na Tatuaz</a>
     </div>
-</div>
+    <div sec:authorize="hasAuthority('ADMIN')">
+        <a th:href="@{/addTatDate}">Stworz Termin na Tatuaz</a>
+    </div>
+    </div>
 </body>
 </html>

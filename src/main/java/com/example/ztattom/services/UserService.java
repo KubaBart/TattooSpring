@@ -22,7 +22,7 @@ public class UserService {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        Role roleUser = roleRepo.findByName("Klient");
+        Role roleUser = roleRepo.findByName("USER");
         user.addRole(roleUser);
         userRepo.save(user);
     }
